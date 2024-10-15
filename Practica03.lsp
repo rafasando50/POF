@@ -10,7 +10,6 @@ original utilizando MAPCAR.
 (write-line " ")
 (write(mapcar (lambda (x) (* x x)) '(1 2 3 4 5 6 7 8 9 10)))
 
-
 #|
 Dada una lista de números, utiliza MAPCAN para crear una nueva
 lista que contenga solo los cuadrados de los números impares de la
@@ -19,7 +18,6 @@ lista original. Por ejemplo, para la lista (1 2 3 4 5), el resultado sería (1
 |#
 (write-line " ")
 (write(mapcan (lambda (x) (when (evenp x) (list (* x x)))) '(14 15 21 19 33 24)))
-
 
 #|
 Dada una lista de palabras (strings), utiliza MAPCAR para devolver
@@ -36,7 +34,7 @@ REMOVE-IF y REMOVE-IF-NOT
 |#
 
 #|
-Dada una lista de números, elimina todos aquellos que sean impares
+    Dada una lista de números, elimina todos aquellos que sean impares
 |#
 (write-line " ")
 (write(remove-if #'evenp' (1 2 3 4 5)))
