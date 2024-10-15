@@ -193,3 +193,51 @@ Comprueba si alguna cadena de una lista contiene la subcadena "cat".
 
 (write-line " ")
 (write(some (lambda (x) (search "cat" x)) '("gato" "perro" "gato")))
+
+#|
+1- Escribir una función llamada suma-cuadrados-pares que tome una lista de
+números, seleccione los números pares y devuelva la suma de sus cuadrados.
+a. (print (suma-cuadrados-pares '(1 2 3 4 5)))
+b. Debe imprimir 20 (4 + 16)
+|#
+
+(write-line " ")
+(defun suma-cuadrados-pares (lista)
+  (let ((suma 0))
+    (dolist (numero lista suma)
+      (when (evenp numero)
+        (setf suma (+ suma (* numero numero)))))
+    suma)) 
+
+(print (suma-cuadrados-pares '(1 2 3 4 5)))
+
+
+#|
+2- Escribir una función llamada multiplica-impares-positivos que tome una
+lista de números, seleccione los números impares positivos y devuelva el
+producto de todos ellos.
+a. (print (multiplica-impares-positivos '(-1 1 2 3 4 5)))
+b. Debe imprimir 15 (1 * 3 * 5)
+|#
+
+(write-line " ")
+(defun multiplica-impares-positivos (lista)
+  (let ((producto 1))
+    (dolist (numero lista producto)
+      (when (and (oddp numero) (plusp numero))
+        (setf producto (* producto numero))))
+    producto))
+
+(print (multiplica-impares-positivos '(-1 1 2 3 4 5)))
+
+#|
+3- Escribir una función llamada filtra-y-transforma que tome una lista de
+números, filtre aquellos que son divisibles por 3 y transforme el resultado
+multiplicando cada número por 2.
+|#
+
+(write-line " ")
+(defun filtra-y-transforma (lista)
+  (mapcar (lambda (x) (* x 2)) (remove-if-not (lambda (x) (zerop (mod x 3))) lista)))
+
+(print (filtra-y-transforma '(1 2 3 4 5 6 7 8 9 10)))
