@@ -80,6 +80,7 @@ Escribir una función llamada suma-de-elementos que tome una lista
 de números y devuelva la suma de todos sus elementos.
 |#
 
+(write-line " ")
 (defun suma-de-elementos (lista)
   (let ((suma 0))
     (dolist (numero lista suma)
@@ -92,12 +93,24 @@ Escribir una función llamada producto-de-elementos que tome una
 lista de números y devuelva el producto de todos sus elementos.
 |#
 
+(write-line " ")
+(defun producto-de-elementos (lista)
+  (let ((producto 1))
+    (dolist (numero lista producto)
+      (setf producto (* producto numero)))))
 
+(write(producto-de-elementos '(1 2 3 4 5)))
 
 #|
 Escribir una función llamada maximo-elemento que tome una lista de
 números y devuelva el máximo elemento de la lista.
 |#
+
+(write-line " ")
+(defun maximo-elemento (lista)
+  (reduce #'max lista))
+
+(write(maximo-elemento '(1 2 3 4 5)))
 
 #|
 FIND-IF
@@ -107,14 +120,23 @@ FIND-IF
 Encuentra el primer número impar en una lista de números.
 |#
 
+(write-line " ")
+(write(find-if #'oddp '(2 4 6 8 10 11 12 14 16 18 20)))
+
 #|
 Encuentra la primera palabra en una lista que tenga más de 5
 caracteres.
 |#
 
+(write-line " ")
+(write(find-if (lambda (x) (> (length x) 5)) '("Juan" "Marta" "Luis" "Diego")))
+
 #|
 Encuentra el primer número negativo en una lista.
 |#
+
+(write-line " ")
+(write(find-if #'minusp '(-1 2 -3 4 -5)))
 
 #|
 EVERY y SOME
@@ -124,29 +146,50 @@ EVERY y SOME
 Verifica si todos los elementos de una lista de números son positivos.
 |#
 
+(write-line " ")
+(write(every #'plusp '(1 2 3 4 5)))
+
 #|
 Comprueba si todas las palabras en una lista tienen más de 3
 caracteres.
 |#
+
+(write-line " ")
+(write(every (lambda (x) (> (length x) 3)) '("Juan" "Marta" "Luis" "Diego")))
 
 #|
 Verifica si alguno de los elementos de una lista de números es
 negativo.
 |#
 
+(write-line " ")
+(write(some #'minusp '(-1 2 -3 4 -5)))
+
 #|
 Verifica si todos los números en una lista son pares.
 |#
+
+(write-line " ")
+(write(every #'evenp '(2 4 6 8 10)))
 
 #|
 Comprueba si todas las cadenas en una lista son palabras
 palíndromas (se leen igual al derecho y al revés).
 |#
 
+(write-line " ")
+(write(every (lambda (x) (equalp x (reverse x))) '("ana" "oso" "reconocer" "salas")))
+
 #|
 Verifica si alguno de los números en una lista es divisible por 7.
 |#
 
+(write-line " ")
+(write(some (lambda (x) (zerop (mod x 7))) '(1 2 3 4 5 6 7 8 9 10)))
+
 #|
 Comprueba si alguna cadena de una lista contiene la subcadena "cat".
 |#
+
+(write-line " ")
+(write(some (lambda (x) (search "cat" x)) '("gato" "perro" "gato")))
