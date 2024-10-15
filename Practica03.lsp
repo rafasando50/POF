@@ -60,6 +60,7 @@ Dada una lista de números, conserva solamente aquellos que estén en
 el rango [10, 20] (inclusivo).
 |#
 (write-line " ")
+(write(remove-if-not (lambda (x) (and (>= x 10) (<= x 20))) '(1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20)))
  
 
 #|
@@ -79,12 +80,19 @@ Escribir una función llamada suma-de-elementos que tome una lista
 de números y devuelva la suma de todos sus elementos.
 |#
 
+(defun suma-de-elementos (lista)
+  (let ((suma 0))
+    (dolist (numero lista suma)
+      (setf suma (+ suma numero)))))
 
+(suma-de-elementos '(1 2 3 4 5))
 
 #|
 Escribir una función llamada producto-de-elementos que tome una
 lista de números y devuelva el producto de todos sus elementos.
 |#
+
+
 
 #|
 Escribir una función llamada maximo-elemento que tome una lista de
